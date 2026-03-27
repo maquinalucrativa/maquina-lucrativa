@@ -773,6 +773,100 @@
     .price-new { font-size: 56px; }
     nav .nav-logo { font-size: 15px; }
   }
+
+  /* ── CAROUSEL ── */
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .carousel-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 8px 0;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel-track::-webkit-scrollbar {
+    height: 6px;
+  }
+  .carousel-track::-webkit-scrollbar-track {
+    background: rgba(201,168,76,0.1);
+    border-radius: 3px;
+  }
+  .carousel-track::-webkit-scrollbar-thumb {
+    background: rgba(201,168,76,0.4);
+    border-radius: 3px;
+  }
+  .carousel-track::-webkit-scrollbar-thumb:hover {
+    background: rgba(201,168,76,0.6);
+  }
+  .carousel-slide {
+    flex: 0 0 calc(100% - 32px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .carousel-hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .carousel-hint::before {
+    content: '👆';
+    font-size: 16px;
+  }
+  .carousel-hint::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 12px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    border-radius: 2px;
+    animation: slideHint 1.5s ease-in-out infinite;
+  }
+  @keyframes slideHint {
+    0%, 100% { opacity: 0.5; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(8px); }
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-slide {
+      flex: 0 0 calc(100% - 16px);
+    }
+  }
+
+
+  .artist-badge-fixed {
+    position: static;
+    background: rgba(10,10,10,0.9);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--gold);
+    margin-top: 12px;
+    text-align: center;
+    display: inline-block;
+  }
+
 </style>
 </head>
 <body>
@@ -780,7 +874,7 @@
 <!-- NAV -->
 <nav>
   <span class="nav-logo">Máquina Lucrativa</span>
-  <a href="#preco" class="nav-cta">Quero Acesso — R$67</a>
+  <a href="https://pay.hotmart.com/K104985899E" class="nav-cta" target="_blank">Quero Acesso — R$67</a>
 </nav>
 
 <!-- HERO -->
@@ -813,7 +907,7 @@
   </div>
 
   <div class="hero-cta-group">
-    <a href="#preco" class="btn-primary">Destravar Meu Acesso Agora</a>
+    <a href="https://pay.hotmart.com/K104985899E" class="btn-primary" target="_blank">Destravar Meu Acesso Agora</a>
     <span class="btn-guarantee">Garantia incondicional de 7 dias. Risco zero.</span>
   </div>
 </section>
@@ -881,32 +975,27 @@
 <!-- PROOF IMAGES -->
 <div class="proof-images-section reveal">
   <div class="proof-label">Prints dos ganhos reais — 5 canais monetizados</div>
-  <div class="proof-images-grid">
-    <!-- SLOT 1 -->
-    <div class="proof-img-slot">
-      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/></svg>
-      <span>Insira o print<br>do Canal 1</span>
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <img src="https://files.catbox.moe/fbjqqh.png" alt="Canal 1 - Faturamento">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://files.catbox.moe/q8s8t3.png" alt="Canal 2 - Faturamento">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://files.catbox.moe/h0ou5w.png" alt="Canal 3 - Faturamento">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://files.catbox.moe/4ajbxu.png" alt="Canal 4 - Faturamento">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://files.catbox.moe/pr4bli.png" alt="Canal 5 - Faturamento">
+        </div>
+      </div>
     </div>
-    <!-- SLOT 2 -->
-    <div class="proof-img-slot">
-      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/></svg>
-      <span>Insira o print<br>do Canal 2</span>
-    </div>
-    <!-- SLOT 3 -->
-    <div class="proof-img-slot">
-      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/></svg>
-      <span>Insira o print<br>do Canal 3</span>
-    </div>
-    <!-- SLOT 4 -->
-    <div class="proof-img-slot">
-      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/></svg>
-      <span>Insira o print<br>do Canal 4</span>
-    </div>
-    <!-- SLOT 5 -->
-    <div class="proof-img-slot">
-      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/></svg>
-      <span>Insira o print<br>do Canal 5</span>
-    </div>
+    <div class="carousel-hint">Arraste para o lado para ver mais</div>
   </div>
 </div>
 
@@ -1006,10 +1095,14 @@
         "Criei o Noah Kim para mostrar que qualquer pessoa com acesso às ferramentas certas consegue criar um artista virtual de qualidade profissional."
       </p>
     </div>
-    <div class="artist-mockup reveal">
-      <svg width="40" height="40" fill="none" viewBox="0 0 24 24" style="opacity:.3"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <span style="font-size:13px;color:var(--text-dim);">Insira a imagem / vídeo do Noah Kim aqui</span>
-      <div class="artist-badge">Criado 100% com IA — Noah Kim</div>
+    <div style="max-width: 400px; margin: 0 auto;">
+      <div class="artist-mockup reveal" style="aspect-ratio: 9/16; position: relative;">
+        <video width="100%" height="100%" style="border-radius: 12px; object-fit: cover;" controls>
+          <source src="https://files.catbox.moe/kgdk3m.mp4" type="video/mp4">
+          Seu navegador não suporta o elemento de vídeo.
+        </video>
+      </div>
+      <div class="artist-badge-fixed">Criado 100% com IA — Noah Kim</div>
     </div>
   </div>
 </section>
@@ -1112,7 +1205,7 @@
       <li>Guia PDF: Combinações musicais inovadoras</li>
     </ul>
 
-    <a href="#" class="btn-primary" style="width:100%;text-align:center;display:block">
+    <a href="https://pay.hotmart.com/K104985899E" class="btn-primary" style="width:100%;text-align:center;display:block" target="_blank">
       Destravar Meu Acesso Agora
     </a>
 
